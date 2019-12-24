@@ -23,7 +23,7 @@ The `dmenu_vpns` script looks at `.config/openfortivpn` for config
 files and lists them as options. This menu is bound to `super + v`.
 If you select one, it will connect to the VPN in an st terminal
 with the class `st-vpn` and a relevant title. This class is used
-to send the terminal to the #10 desktop, VPN.
+in the bspwmrc to send the terminal to the #10 desktop, VPN.
 
 The `vpninfo` script is used as a custom script by polybar to output
 the currently connected VPNs to a polybar module. This is convenient.
@@ -35,8 +35,8 @@ I no longer have nm-applet installed.
 The `dmenu_configs` script will open a menu that lists config files.
 This menu is bound to `super + e`. The selected config file will be
 opened in vim in an st terminal that has the class of
-`st-config-dotfile` and a relevant title. The class is used to send
-the terminal to the #8 desktop, CNF.
+`st-config-dotfile` and a relevant title. The class is used in the
+bspwmrc to send the terminal to the #8 desktop, CNF.
 
 These menu items are made manually. You'll have to add the config
 files you want to add to this menu by editing the script.
@@ -53,6 +53,15 @@ file in vim for quick editing.
 
 > WARNING: This script was made on a whim and is probably buggy.
 Will evolve.
+
+**calcurse dmenu**
+
+The `dmenu_calcurse` script will look in `~/.config` and grep
+for `calcurse`. These config folders are then listed in dmenu.
+This menu is bound to `super + alt + c`. If one is selected,
+calcurse is launched with that configuration in an st terminal
+with the class `st-calcurse`. This class is used in the bspwmrc
+to send the terminal to the #3 desktop, TRM.
 
 **cas**
 
