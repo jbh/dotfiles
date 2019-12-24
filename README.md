@@ -20,7 +20,7 @@ This feature only supports openfortivpn at the moment, because that's
 all I currently use. More will be added as I use them.
 
 The `dmenu_vpns` script looks at `.config/openfortivpn` for config
-files and lists them as options. This menu is bound to `super + v`
+files and lists them as options. This menu is bound to `super + v`.
 If you select one, it will connect to the VPN in an st terminal
 with the class `st-vpn` and a relevant title. This class is used
 to send the terminal to the #10 desktop, VPN.
