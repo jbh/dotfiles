@@ -1,0 +1,45 @@
+#!/bin/bash
+
+declare options=("bash
+bspwm
+picom
+polybar
+st
+sxhkd
+vim
+quit")
+
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit a config file: ')
+
+case "$choice" in
+	quit)
+		echo "Program terminated." && exit 1
+	;;
+	bash)
+		config="$HOME/.bashrc"
+	;;
+	bspwm)
+		config="$HOME/.config/bspwm/bspwmrc"
+	;;
+	picom)
+		config="$HOME/.config/picom/picom.conf"
+	;;
+	polybar)
+		config="$HOME/.config/polybar/config"
+	;;
+	st)
+		config="$HOME/st/config.h"
+	;;
+	sxhkd)
+		config="$HOME/.config/sxhkd/sxhkdrc"
+	;;
+	vim)
+		config="$HOME/.vimrc"
+	;;
+	*)
+		exit 1
+	;;
+esac
+
+st -t "Editing $choice" -c "st-config-dotfile" vim "$config"
+
