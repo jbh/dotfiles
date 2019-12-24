@@ -5,7 +5,7 @@
 #
 # In order to install this hook, copy this file to ~/.calcurse/hooks/.
 
-cd "$HOME"/.calcurse/
+cd "$HOME"/.config/calcurse/
 
 # Do not do anything when synchronizing with a CalDAV server.
 [ -f caldav/lock ] && exit
@@ -15,7 +15,7 @@ if [ -d caldav -a -x "$(which calcurse-caldav)" ]; then
 	(
 		date="$(date +'%b %d %H:%M:%S')"
 		echo "$date Running calcurse-caldav from the pre-load hook..."
-		calcurse-caldav
+		calcurse-caldav --config=caldav/config --syncdb=caldav/sync.db --datadir=.
 		echo
 	) >>caldav/log 2>&1 &
 fi
