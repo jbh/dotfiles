@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Set default sink
+pacmd "set-default-sink $1"
+
+# Move all sink inputs to the new default sink
+pacmd list-sink-inputs | grep index | while read line
+do
+	pacmd "move-sink-input `echo $line | cut -f2 -d' '` $1"
+done
+
+case $1 in
+	*"blue"*)
+		message="Audio now using Bluetooth"
+		;;
+	*"analog"*)
+		message="Audio now using Analog"
+		;;
+	*)
+		message="Audio source changed"
+		;;
+esac
+
+notify-send "$message"
+

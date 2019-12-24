@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This handles openfortivpn only.
+# More can be added later as needed.
+fortiVpns=`pgrep -a openfortivpn | awk '{print $NF }'`
+
+for vpn in ${fortiVpns// / }; do
+	tmp=`basename $vpn`
+	[ -z $allVpns ] && allVpns="$tmp" || allVpns="$allVpns,$tmp"
+done
+
+printf "VPN: " && ([ -z $allVpns ] && echo down || echo $allVpns)
+

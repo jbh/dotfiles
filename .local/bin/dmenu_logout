@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Menu items
+# Use poweroff to avoid accidentally shutting down
+items="lock
+reboot
+poweroff
+suspend"
+
+# Open menu
+selection=$(printf '%s' "$items" | dmenu -i)
+
+case $selection in
+	lock)
+		blurlock
+		;;
+	suspend)
+		systemctl suspend
+		;;
+	reboot)
+		systemctl reboot
+		;;
+	halt|poweroff|shutdown)
+		logout
+		systemctl poweroff
+		;;
+esac
+
+exit
