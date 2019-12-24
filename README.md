@@ -14,7 +14,7 @@ These dotfiles are for Arch Linux
 
 ### Features
 
-**VPN Status/dmenu**
+**Polybar VPN Status/dmenu_vpns**
 
 This feature only supports openfortivpn at the moment, because that's
 all I currently use. More will be added as I use them.
@@ -30,7 +30,7 @@ the currently connected VPNs to a polybar module. This is convenient.
 These two combined have reduced the necessity of nm-applet for me, so
 I no longer have nm-applet installed.
 
-**Config dmenu**
+**dmenu_configs**
 
 The `dmenu_configs` script will open a menu that lists config files.
 This menu is bound to `super + e`. The selected config file will be
@@ -41,7 +41,7 @@ bspwmrc to send the terminal to the #8 desktop, CNF.
 These menu items are made manually. You'll have to add the config
 files you want to add to this menu by editing the script.
 
-**PhpStorm dmenu**
+**dmenu_phpstorm**
 
 The `dmenu_phpstorm` script will traverse through the `Sites`
 directory, which is what I maintain as my PhpStorm project
@@ -54,7 +54,7 @@ file in vim for quick editing.
 > WARNING: This script was made on a whim and is probably buggy.
 Will evolve.
 
-**calcurse dmenu**
+**dmenu_calcurse**
 
 The `dmenu_calcurse` script will look in `~/.config` and grep
 for `calcurse`. These config folders are then listed in dmenu.
