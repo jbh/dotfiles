@@ -65,7 +65,9 @@ to send the terminal to the #3 desktop, TRM.
 
 **cas**
 
-The `cas` script can be used to quickly switch audio sources.
+The `cas` script can be used to quickly change audio sources.
 I use it to write keybindings that allow me to quickly switch
-between bluetooth and analong speakers.
+between bluetooth and analong speakers. For example,
+`super + alt + 1` changes my audio output to analog speakers,
+and `super + alt + 2` changes my audio output to bluetooth.
 
