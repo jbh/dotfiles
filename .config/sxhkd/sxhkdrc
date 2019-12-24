@@ -26,6 +26,10 @@ super + e
 super + v
 	dmenu_vpns
 
+# open calcurse menu
+super + alt + c
+	dmenu_calcurse
+
 # edit directory/file with phpstorm/vim menu
 super + alt + p
 	dmenu_phpstorm

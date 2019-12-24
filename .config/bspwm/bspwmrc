@@ -37,6 +37,7 @@ bspc config urgent_border_color    "#dc322f"
 
 bspc rule -a Brave-browser desktop='^1' follow=on
 bspc rule -a st-vpn desktop='^10' follow=on
+bspc rule -a st-calcurse desktop='^3' follow=on
 bspc rule -a Emacs state=tiled desktop='^6' follow=on
 bspc rule -a jetbrains-phpstorm desktop='^6' follow=on
 bspc rule -a jetbrains-datagrip desktop='^6' follow=on
