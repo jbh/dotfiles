@@ -7,7 +7,7 @@
 #
 # In order to install this hook, copy this file to ~/.calcurse/hooks/.
 
-cd "$HOME"/.config/calcurse-work/
+cd "$HOME"/.config/calcurse/personal/
 
 # Do not do anything when synchronizing with a CalDAV server.
 [ -f caldav/lock ] && exit

@@ -56,8 +56,10 @@ Will evolve.
 
 **dmenu_calcurse**
 
-The `dmenu_calcurse` script will look in `~/.config` and grep
-for `calcurse`. These config folders are then listed in dmenu.
+The `dmenu_calcurse` script will look in `~/.config/calcurse`
+for individual calcurse configs. For example,
+`~/.config/calcurse/personal` and `~/.config/calcurse/work`.
+These config folders are then listed in dmenu.
 This menu is bound to `super + alt + c`. If one is selected,
 calcurse is launched with that configuration in an st terminal
 with the class `st-calcurse`. This class is used in the bspwmrc

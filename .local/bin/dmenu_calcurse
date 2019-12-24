@@ -1,12 +1,13 @@
 #!/bin/bash
 
-declare options=$(ls -1 $HOME/.config | grep calcurse && echo -e quit)
+CC_PATH=$HOME/.config/calcurse
+declare options=$(ls -1 "$CC_PATH" && echo -e quit)
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open Calendar: ')
 
 [ $choice == quit ] && echo "Program terminated." && exit 1
 
-path=$HOME/.config/$choice
+path="$CC_PATH/$choice"
 
 st -c st-calcurse -t "$choice" calcurse -C $path -D $path
 
