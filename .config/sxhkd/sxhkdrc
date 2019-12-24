@@ -72,6 +72,11 @@ XF86AudioRaiseVolume
 XF86AudioMute
         amixer set Master toggle
 
+# Media controls
+{XF86AudioPlay, XF86AudioPrev, XF86AudioNext
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
+		/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{PlayPause,Previous,Next}
+
 #
 # bspwm hotkeys
 #
