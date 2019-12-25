@@ -73,3 +73,11 @@ between bluetooth and analong speakers. For example,
 `super + alt + 1` changes my audio output to analog speakers,
 and `super + alt + 2` changes my audio output to bluetooth.
 
+**scs**
+
+The `scs` script simply outputs sxhkd hotkeys with their
+comments to less. It's basically a cheat sheet for sxhkd
+hotkeys. The main use is for popping up a helpful,
+floating terminal window that can simply be closed by
+typing q. This is bound to `super + question` (?).
+

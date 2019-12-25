@@ -10,6 +10,10 @@ super + Return
 super + p
 	maim -s | xclip -selection clipboard -t image/png
 
+# open sxhkd cheat sheet
+super + question
+	st -c st-sxhkd-help -t "sxhkd cheat sheet" -g 120x45 scs
+
 # program launcher
 super + d
 	dmenu_run
@@ -46,13 +50,15 @@ super + Escape
 # wm independent applicaitons
 #
 
+# launch Brave
 super + F1
 	brave
 
+# launch PhpStorm
 super + F2
 	phpstorm
 
-# IBM i ACS
+# launch IBM i ACS
 super + F3
 	 /opt/ibm/iAccessClientSolutions/Start_Programs/Linux_x86-64/acslaunch_linux-64
 
@@ -60,20 +66,24 @@ super + F3
 # wm independent audio
 #
 
-# Move between analog (1) and bluetooth (2)
+# move between analog (1) and bluetooth (2)
 super + alt + {1,2}
 	cas {alsa_output.pci-0000_00_1b.0.analog-stereo,bluez_sink.4C_87_5D_29_4A_FD.a2dp_sink}
 
-# Volume controls
+# decrease volume
 XF86AudioLowerVolume
 	amixer set Master 5%-
+
+# increase volume
 XF86AudioRaiseVolume
 	amixer set Master 5%+
+
+# mute audio
 XF86AudioMute
         amixer set Master toggle
 
-# Media controls
-{XF86AudioPlay, XF86AudioPrev, XF86AudioNext
+# play/pause, previous, next track
+{XF86AudioPlay, XF86AudioPrev, XF86AudioNext}
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
 		/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{PlayPause,Previous,Next}
 
@@ -146,6 +156,14 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# workspace manipulation
+#
+
+# rotate windows
+super + {_,shift + }r
+	bspc node @/ --rotate {90,-90}
 
 #
 # bspwm preselect
