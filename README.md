@@ -76,8 +76,9 @@ and `super + alt + 2` changes my audio output to bluetooth.
 **scs**
 
 The `scs` script simply outputs sxhkd hotkeys with their
-comments to less. It's basically a cheat sheet for sxhkd
-hotkeys. The main use is for popping up a helpful,
-floating terminal window that can simply be closed by
-typing q. This is bound to `super + question` (?).
+comments to fzf, allowing for a quick fuzzy search of hotkeys.
+It's basically a cheat sheet for sxhkd hotkeys. The main use
+is for popping up a helpful, floating terminal window that can
+used to search hotkeys and quickly closed by typing enter. This
+is bound to `super + question` (?).
 

@@ -1,5 +1,5 @@
 #!/bin/bash
 # sxhkd cheat sheet
 
-cat ~/.config/sxhkd/sxhkdrc | awk '/^[a-z]|[A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | less
+cat ~/.config/sxhkd/sxhkdrc | awk '/^[a-z]|[A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf
 
