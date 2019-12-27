@@ -5,6 +5,7 @@ sxhkd &
 dunst &
 picom -b &
 setbg &
+unclutter &
 $HOME/.config/polybar/launch.sh &
 
 # Fix java reparenting issue
