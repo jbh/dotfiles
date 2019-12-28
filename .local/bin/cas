@@ -11,10 +11,10 @@ done
 
 case $1 in
 	*"blue"*)
-		message="Audio now using Bluetooth"
+		message=" Audio now using Bluetooth"
 		;;
 	*"analog"*)
-		message="Audio now using Analog"
+		message="蓼 Audio now using Analog"
 		;;
 	*)
 		message="Audio source changed"
