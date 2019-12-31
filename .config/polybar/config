@@ -49,8 +49,8 @@ font-0 = FiraCode:pixelsize=10;1
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
 font-2 = "Font Awesome 5 Brands:style=Solid:pixelsize=10;1"
 
-modules-left = bspwm xwindow
-modules-center =
+modules-left = bspwm
+modules-center = xwindow
 modules-right = filesystem pulseaudio eth vpns memory cpu temperature date powermenu
 
 ; no need for sys tray
