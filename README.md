@@ -5,6 +5,7 @@ These dotfiles are for Arch Linux
 - Personal scripts are in `~/.local/bin`
 - Settings for:
   - vim (text editor)
+  - vpns
   - bspwm (window manager)
   - polybar (status bar)
   - sxhkd (hotkey manager)
