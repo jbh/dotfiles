@@ -54,9 +54,9 @@ modules-center = xwindow
 modules-right = filesystem pulseaudio eth vpns memory cpu temperature date powermenu
 
 ; no need for sys tray
-;tray-position = right
-;tray-padding = 2
-;tray-background = #0063ff
+tray-position = right
+tray-padding = 2
+tray-background = #0063ff
 
 wm-restack = bspwm
 override-redirect = true

@@ -7,6 +7,7 @@ picom -b &
 setbg &
 unclutter &
 $HOME/.config/polybar/launch.sh &
+xrandr --output DP-4 --rotate right &
 
 # Fix java reparenting issue
 # Mainly only an issue with PhpStorm and bspwm
