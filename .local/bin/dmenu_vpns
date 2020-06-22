@@ -6,7 +6,7 @@ declare options=$(ls -1 "$OFV_PATH" && echo -e "quit")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open VPN: ')
 
-[ $choice == quit ] && echo "Program terminated." && exit 1
+[[ ! ${options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]] && echo "Program terminated." && exit 1
 
 st -c st-vpn -t "VPN - $choice" sudo openfortivpn -c "$OFV_PATH/$choice"
 
