@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# This handles openfortivpn only.
-# More can be added later as needed.
 fortiVpns=`pgrep -a openfortivpn | awk '{print $NF }'`
 openconnectVpns=`pgrep -a openconnect | cut -d '=' -f 2 | cut -d ' ' -f1`
 
