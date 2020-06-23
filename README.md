@@ -34,10 +34,7 @@ I no longer have nm-applet installed.
 > When creating normal openconnect config files, passwd and host
 are not options. However, for my scripts to work properly, they
 require passwd and host options. These options are read then
-deleted from the config file before openconnect is called.
-When openconnect disconnects, the file is replaced. I need
-to figure out a better way to do this, because if something fails,
-everything breaks and the backup has to be manually moved.
+used for openconnect.
 
 **dmenu_configs**
 
