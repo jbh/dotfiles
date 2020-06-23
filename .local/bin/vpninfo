@@ -3,10 +3,16 @@
 # This handles openfortivpn only.
 # More can be added later as needed.
 fortiVpns=`pgrep -a openfortivpn | awk '{print $NF }'`
+openconnectVpns=`pgrep -a openconnect | cut -d '=' -f 2 | cut -d ' ' -f1`
 
 for vpn in ${fortiVpns// / }; do
-	tmp=`basename $vpn`
-	[ -z $allVpns ] && allVpns="$tmp" || allVpns="$allVpns,$tmp"
+    tmp=`basename $vpn`
+    [ -z $allVpns ] && allVpns="$tmp" || allVpns="$allVpns,$tmp"
+done
+
+for vpn in ${openconnectVpns// / }; do
+    tmp=`basename $vpn`
+    [ -z $allVpns ] && allVpns="$tmp" || allVpns="$allVpns,$tmp"
 done
 
 printf "VPN: " && ([ -z $allVpns ] && echo down || echo $allVpns)
