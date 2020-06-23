@@ -11,8 +11,7 @@ for vpn in ${fortiVpns// / }; do
 done
 
 for vpn in ${openconnectVpns// / }; do
-    tmp=`basename $vpn`
-    [ -z $allVpns ] && allVpns="$tmp" || allVpns="$allVpns,$tmp"
+    [ -z $allVpns ] && allVpns="$vpn" || allVpns="$allVpns,$vpn"
 done
 
 printf "VPN: " && ([ -z $allVpns ] && echo down || echo $allVpns)
