@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Currently only handles openforti vpns
-OFV_PATH="$HOME/.config/openfortivpn"
-OC_PATH="$HOME/.config/openconnect"
-ofv_options=$(ls -1 "$OFV_PATH")
-oc_options=$(ls -1 "$OC_PATH")
+ofv_path="$HOME/.config/openfortivpn"
+oc_path="$HOME/.config/openconnect"
+ofv_options=$(ls -1 "$ofv_path")
+oc_options=$(ls -1 "$oc_path")
 options=$(echo "$ofv_options" && echo "$oc_options" && echo -e "quit")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open VPN: ')
@@ -12,16 +12,17 @@ choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open VPN: ')
 [[ ! ${options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]] && echo "Program terminated." && exit 1
 
 if [[ ${ofv_options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
-  st -c st-vpn -t "VPN - $choice" -e sudo openfortivpn -c "$OFV_PATH/$choice"
+  st -c st-vpn -t "VPN - $choice" -e sudo openfortivpn -c "$ofv_path/$choice"
 fi
 
 if [[ ${oc_options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
-  config="$OC_PATH/$choice"
-  pass=$(sed -n '1p' $config)
+  config="$oc_path/$choice"
   configbak="$config.bak"
-  mv $config $configbak
-  sed '1d' $configbak > $config
-  connect="echo $pass | sudo openconnect --config=$config --passwd-on-stdin $choice && "
+
+  source $config
+  sed -i.bak '/passwd/d;/host/d' $config
+
+  connect="echo $passwd | sudo openconnect --config=$config --passwd-on-stdin $host && "
   connect+="rm $config && mv $configbak $config"
 
   st -c st-vpn -t "VPN - $choice" -e sh -c "$connect"
