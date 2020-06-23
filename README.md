@@ -19,16 +19,25 @@ These dotfiles are for Arch Linux
 This feature only supports openfortivpn at the moment, because that's
 all I currently use. More will be added as I use them.
 
-The `dmenu_vpns` script looks at `.config/openfortivpn` for config
-files and lists them as options. This menu is bound to `super + v`.
-If you select one, it will connect to the VPN in an st terminal
-with the class `st-vpn` and a relevant title. This class is used
-in the bspwmrc to send the terminal to the #10 desktop, VPN.
+The `dmenu_vpns` script looks at `.config/openfortivpn` and
+`.config/openconnect` for config files and lists them as options.
+This menu is bound to `super + v`. If you select one, it will
+connect to the VPN in an st terminal with the class `st-vpn` and
+a relevant title. This class is used in the bspwmrc to send the
+terminal to the #10 desktop, VPN.
 
 The `vpninfo` script is used as a custom script by polybar to output
 the currently connected VPNs to a polybar module. This is convenient.
 These two combined have reduced the necessity of nm-applet for me, so
 I no longer have nm-applet installed.
+
+> When creating normal openconnect config files, passwd and host
+are not options. However, for my scripts to work properly, they
+require passwd and host options. These options are read then
+deleted from the config file before openconnect is called.
+When openconnect disconnects, the file is replaced. I need
+to figure out a better way to do this, because if something fails,
+everything breaks and the backup has to be manually moved.
 
 **dmenu_configs**
 
