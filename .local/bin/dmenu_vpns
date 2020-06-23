@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Currently only handles openforti vpns
 ofv_path="$HOME/.config/openfortivpn"
 oc_path="$HOME/.config/openconnect"
 ofv_options=$(ls -1 "$ofv_path")
 oc_options=$(ls -1 "$oc_path")
 options=$(echo "$ofv_options" && echo "$oc_options" && echo -e "quit")
-
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open VPN: ')
 
 [[ ! ${options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]] && echo "Program terminated." && exit 1
