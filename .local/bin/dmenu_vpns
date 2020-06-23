@@ -20,10 +20,8 @@ if [[ ${oc_options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
   configbak="$config.bak"
 
   source $config
-  sed -i.bak '/passwd/d;/host/d' $config
 
-  connect="echo $passwd | sudo openconnect --config=$config --passwd-on-stdin $host && "
-  connect+="rm $config && mv $configbak $config"
+  connect="echo $passwd | sudo openconnect --pid-file=$choice --authgroup $authgroup --user $user --servercert $servercert --passwd-on-stdin $host"
 
   st -c st-vpn -t "VPN - $choice" -e sh -c "$connect"
 fi
