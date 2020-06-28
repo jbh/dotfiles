@@ -12,5 +12,9 @@ for vpn in ${openconnectVpns// / }; do
     [ -z $allVpns ] && allVpns="$vpn" || allVpns="$allVpns,$vpn"
 done
 
+if [[ `pgrep -a openvpn | grep proton` != "" ]]; then
+    [ -z $allVpns ] && allVpns="proton" || allVpns="$allVpns,proton"
+fi
+
 printf "VPN: " && ([ -z $allVpns ] && echo down || echo $allVpns)
 
