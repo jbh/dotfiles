@@ -4,7 +4,7 @@ ofv_path="$HOME/.config/openfortivpn"
 oc_path="$HOME/.config/openconnect"
 ofv_options=$(ls -1 "$ofv_path")
 oc_options=$(ls -1 "$oc_path")
-options=$(echo "$ofv_options" && echo "$oc_options" && echo -e "quit")
+options=$(echo "$ofv_options" && echo "$oc_options" && echo -e "protonvpn\nquit")
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open VPN: ')
 
 [[ ! ${options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]] && echo "Program terminated." && exit 1
@@ -21,3 +21,6 @@ if [[ ${oc_options[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
   st -c st-vpn -t "VPN - $choice" -e sh -c "$connect"
 fi
 
+if [[ "$choice" == "protonvpn" ]]; then
+  st -c st-vpn -t "VPN - $choice" -e sudo protonvpn connect
+fi
