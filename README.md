@@ -44,6 +44,12 @@ select a tmux session **that exists and is open**, it will focus
 it. If you type a **new session name and press `shift+enter`**,
 it will open a new tmux session.
 
+**dmenu_tizonia**
+
+If tizonia from this menu already exists, focus it. Otherwise,
+open a dmenu with manually defined playlists, and open
+the selected playlist in tizonia.
+
 **dmenu_configs**
 
 The `dmenu_configs` script will open a menu that lists config files.
