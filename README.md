@@ -36,6 +36,14 @@ are not options. However, for my scripts to work properly, they
 require passwd and host options. These options are read then
 used for openconnect.
 
+**dmenu_tmux**
+
+Opens a dmenu of existing tmux sessions. If you select a tmux
+session **that exists and isn't open**, it will open it. If you
+select a tmux session **that exists and is open**, it will focus
+it. If you type a **new session name and press `shift+enter`**,
+it will open a new tmux session.
+
 **dmenu_configs**
 
 The `dmenu_configs` script will open a menu that lists config files.
