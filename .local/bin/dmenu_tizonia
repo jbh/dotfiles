@@ -15,7 +15,6 @@ choice=$(echo "${options[@]}" | dmenu -i -p 'tmux: ')
   echo "Program terminated." && exit 1
 
 if [[ "$(echo "${spotify[@]}" | grep "$choice")" != "" ]]; then
-  echo "here"
   st -c st-tizonia -t "tizonia - $choice" -e tizonia --spotify-playlist "$choice"
 elif [[ "$(echo "${google[@]}" | grep "$choice")" != "" ]]; then
   st -c st-tizonia -t "tizonia - $choice" -e tizonia --gmusic-playlist "$choice"
