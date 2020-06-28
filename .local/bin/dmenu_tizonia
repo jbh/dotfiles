@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ "$(pgrep dmenu_tizonia)" != "" ]] && xdo activate -N st-tizonia && exit 0
+[[ "$(xdotool search --class st-tizonia)" != "" ]] && xdo activate -N st-tizonia && exit 0
 
 # Have to manually define playlists until
 # tizonia has a way to list playlists
