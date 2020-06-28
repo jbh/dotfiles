@@ -11,7 +11,7 @@ Unlonely Wolf")
 google=("Feeling Myself
 Everything is Fine")
 options=$(echo "$spotify" && echo "$google" && echo "quit")
-choice=$(echo "${options[@]}" | dmenu -i -p 'tmux: ')
+choice=$(echo "${options[@]}" | dmenu -i -p 'Playlist: ')
 
 [[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
   echo "Program terminated." && exit 1
