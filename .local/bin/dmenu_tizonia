@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Have to manually define playlists until
+# tizonia has a way to list playlists
+spotify=("Complex Rap
+Calming
+Grasshoper's Solace
+Unlonely Wolf")
+google=("Feeling Myself
+Everything is Fine")
+options=$(echo "$spotify" && echo "$google" && echo "quit")
+choice=$(echo "${options[@]}" | dmenu -i -p 'tmux: ')
+
+[[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
+  echo "Program terminated." && exit 1
+
+if [[ "$(echo "${spotify[@]}" | grep "$choice")" != "" ]]; then
+  echo "here"
+  st -c st-tizonia -t "tizonia - $choice" -e tizonia --spotify-playlist "$choice"
+elif [[ "$(echo "${google[@]}" | grep "$choice")" != "" ]]; then
+  st -c st-tizonia -t "tizonia - $choice" -e tizonia --gmusic-playlist "$choice"
+fi
+

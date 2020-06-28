@@ -46,6 +46,9 @@ super + alt + p
 super + alt + t
 	dmenu_tasks
 
+super + alt + m
+	dmenu_tizonia
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -88,8 +91,7 @@ XF86AudioMute
 
 # play/pause, previous, next track
 {XF86AudioPlay, XF86AudioPrev, XF86AudioNext}
-	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
-		/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{PlayPause,Previous,Next}
+	tizonia-remote {pause,prev,next}
 
 #
 # bspwm hotkeys
