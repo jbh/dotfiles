@@ -6,6 +6,10 @@
 super + Return
 	st
 
+# tmux menu
+super + shift + Return
+	dmenu_tmux
+
 # print screen selection
 super + p
 	maim -s | xclip -selection clipboard -t image/png

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+attached=$(tmux ls | sed -n '/attached/p' | cut -d ':' -f 1)
+sessions=$(tmux ls | sed -n '/attached/!p' | cut -d ':' -f 1)
+options=$(echo "$attached" && echo "$sessions" && echo "quit")
+choice=$(echo "${options[@]}" | awk 'NF' | dmenu -i -p 'tmux: ')
+
+[[ -z $choice || $choice == 'quit' ]] && echo "Program terminated." && exit 1
+
+if [[ ${sessions[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
+  st -c st-tmux-$choice -t "tmux - $choice" -e tmux attach-session -t $choice
+elif [[ ${attached[*]} =~ (^|[[:space:]])"$choice"($|[[:space:]]) ]]; then
+  xdo activate -N st-tmux-$choice
+else
+  st -c st-tmux-$choice -t "tmux - $choice" -e tmux new -s $choice
+fi
+
