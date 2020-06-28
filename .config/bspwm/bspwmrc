@@ -7,7 +7,6 @@ picom -b &
 setbg &
 unclutter &
 $HOME/.config/polybar/launch.sh &
-xrandr --output DP-4 --rotate right &
 
 # Fix java reparenting issue
 # Mainly only an issue with PhpStorm and bspwm
@@ -17,8 +16,8 @@ wmname LG3D &
 bspc monitor DP-2 -d WWW GFX TRM DOC SYS
 bspc monitor DP-4 -d DEV MUS CNF GME VPN
 
-bspc config border_width        3
-bspc config window_gap          10
+bspc config border_width        1
+bspc config window_gap          0
 bspc config top_padding         27
 
 bspc config split_ratio          0.5
