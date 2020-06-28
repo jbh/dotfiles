@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[[ "$(pgrep tizonia)" != "" ]] && xdo activate -N st-tizonia && exit 0
+
 # Have to manually define playlists until
 # tizonia has a way to list playlists
 spotify=("Complex Rap
