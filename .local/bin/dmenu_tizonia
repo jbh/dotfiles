@@ -1,35 +1,63 @@
 #!/bin/bash
 
-# If st-tizonia already started, focus it and exit
-[[ "$(xdotool search --class st-tizonia)" != "" ]] && xdo activate -N st-tizonia && exit 0
-
-# Have to manually define playlists until
-# tizonia has a way to list playlists
-tizc=~/.config/tizonia
-spotify=$(cat "$tizc/spotify.txt")
-gmusic=$(cat "$tizc/gmusic.txt")
-
-# Combine and remove duplicates
-plists=`(echo "${spotify[@]}" && echo "${gmusic[@]}") | sort -du`
-
-# Add quit to options
-options=$(echo "$plists" && echo "quit")
-
-# Launch dmenu
-choice=$(echo "${options[@]}" | dmenu -i -p 'Playlist: ')
-
 # If invalid choice or quit, exit
-[[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
-  echo "Program terminated." && exit 1
+check_choice() {
+  choice="$1"
+  options="$2"
+  echo "choice: $choice"
+  echo "options: ${options[@]}"
+  [[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
+    echo "Program terminated." && exit 1
+}
 
-# Default to spotify playlists
-tizopt="--spotify-playlist"
+change_playlist() {
+  # Have to manually define playlists until
+  # tizonia has a way to list playlists
+  tizc=~/.config/tizonia
+  spotify=$(cat "$tizc/spotify.txt")
+  gmusic=$(cat "$tizc/gmusic.txt")
 
-# Fall back to google music playlists
-[[ "$(echo "${spotify[@]}" | grep "$choice")" == "" ]] && \
-[[ "$(echo "${gmusic[@]}" | grep "$choice")" != "" ]] && \
-  tizopt="--gmusic-playlist"
+  # Combine and remove duplicates
+  plists=`(echo "${spotify[@]}" && echo "${gmusic[@]}") | sort -du`
 
-# Launch tizonia in st with class st-tizonia
-st -c st-tizonia -t "tizonia - $choice" -e sh -c "tizonia $tizopt '$choice'"
+  # Add quit to options
+  options=$(echo "$plists" && echo "quit")
+
+  # Launch dmenu
+  choice=$(echo "${options[@]}" | dmenu -i -p 'Playlist: ')
+  check_choice "$choice" "${options[@]}"
+
+  # If chaning a current tizonia instance, kill before opening a new one
+  [ "$1" == "change" ] && xdo kill -N st-tizonia
+
+  # Default to spotify playlists
+  tizopt="--spotify-playlist"
+
+  # Fall back to google music playlists
+  [[ "$(echo "${spotify[@]}" | grep "$choice")" == "" ]] && \
+  [[ "$(echo "${gmusic[@]}" | grep "$choice")" != "" ]] && \
+    tizopt="--gmusic-playlist"
+
+  # Launch tizonia in st with class st-tizonia
+  st -c st-tizonia -t "tizonia - $choice" -e sh -c "tizonia $tizopt '$choice'"
+}
+
+if [[ "$(xdotool search --class st-tizonia)" != "" ]]; then
+  # If st-tizonia already started, offer to change playlist or focus current
+  options=("change
+focus
+quit")
+  choice=$(echo "${options[@]}" | dmenu -i -p 'Tizonia: ')
+  check_choice "$choice" "${options[@]}"
+
+  # If focus, focus tizonia and exit
+  [[ "$choice" == "focus" ]] && xdo activate -N st-tizonia && exit 0
+
+  # Assume choice is change, so change playlist and kill previous
+  change_playlist $choice
+else
+  # No tizonia running
+  change_playlist
+fi 
+
 
