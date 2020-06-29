@@ -4,8 +4,6 @@
 check_choice() {
   choice="$1"
   options="$2"
-  echo "choice: $choice"
-  echo "options: ${options[@]}"
   [[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
     echo "Program terminated." && exit 1
 }
