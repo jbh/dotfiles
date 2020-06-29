@@ -27,7 +27,7 @@ change_playlist() {
   choice=$(echo "${options[@]}" | dmenu -i -p 'Playlist: ')
   check_choice "$choice" "${options[@]}"
 
-  # If chaning a current tizonia instance, kill before opening a new one
+  # If changing a current tizonia instance, kill before opening a new one
   [ "$1" == "change" ] && xdo kill -N st-tizonia
 
   # Default to spotify playlists
