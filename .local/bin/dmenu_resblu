@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# If invalid choice or quit, exit
+check_choice() {
+  choice="$1"
+  options="$2"
+  [[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
+    echo "Program terminated." && exit 1
+}
+
+addpath="$HOME/.config/bluetooth/addresses.txt"
+contents=$(cat $addpath)
+device_names=$(echo "${contents[@]}" | cut -d "=" -f1)
+options=$(echo "$device_names" && echo "quit")
+
+# Launch dmenu
+choice=$(echo "${options[@]}" | dmenu -i -p 'Playlist: ')
+check_choice "$choice" "${options[@]}"
+
+# Restart bluetooth for selected device
+address=$(echo "${contents[@]}" | grep "$choice" | cut -d "=" -f2)
+resblu $address
+

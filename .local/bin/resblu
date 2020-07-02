@@ -1,0 +1,27 @@
+#!/usr/bin/expect -f
+# Bluetooth seems to get messed up after dual booting
+# Winblows for gaming... This script resets my bluetooth
+
+set prompt "#"
+set address [lindex $argv 0]
+
+spawn bluetoothctl
+expect -re $prompt
+send "scan on\r"
+send_user "\nSleeping\r"
+sleep 5
+send_user "\nDone sleeping\r"
+send "remove $address\r"
+sleep 1
+expect -re $prompt
+send "trust $address\r"
+sleep 2
+send "pair $address\r"
+sleep 2
+send "connect $address\r"
+sleep 3
+send_user "\n$address should be paired now.\r"
+send "scan off\r"
+send "quit\r"
+expect eof
+
