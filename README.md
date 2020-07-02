@@ -4,13 +4,13 @@ These dotfiles are for Arch Linux
 
 - Personal scripts are in `~/.local/bin`
 - Settings for:
-  - vim (text editor)
-  - bspwm (window manager)
-  - polybar (status bar)
-  - sxhkd (hotkey manager)
-  - dunst (notifier)
-  - picom (compositor)
-  - bash (shell)
+  - [vim](https://github.com/jbh/dotfiles/blob/master/.vimrc) (text editor)
+  - [bspwm](https://github.com/jbh/dotfiles/blob/master/.config/bspwm/bspwmrc) (window manager)
+  - [polybar](https://github.com/jbh/dotfiles/blob/master/.config/polybar/config) (status bar)
+  - [sxhkd](https://github.com/jbh/dotfiles/blob/master/.config/sxhkd/sxhkdrc) (hotkey manager)
+  - [dunst](https://github.com/jbh/dotfiles/blob/master/.config/dunst/dunstrc) (notifier)
+  - [picom](https://github.com/jbh/dotfiles/blob/master/.config/picom/picom.conf) (compositor)
+  - [bash](https://github.com/jbh/dotfiles/blob/master/.bashrc) (shell)
 
 ### Source Control/Installation Methodology
 
@@ -19,7 +19,10 @@ See Anand Iyer's
 
 ### Features
 
-**Polybar VPN Status/dmenu_vpns**
+#### Polybar VPN Status/dmenu_vpns
+
+- [dmenu_vpns](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_vpns)
+- [vpninfo](https://github.com/jbh/dotfiles/blob/master/.local/bin/vpninfo)j
 
 The `dmenu_vpns` script looks at `.config/openfortivpn` and
 `.config/openconnect` for config files and lists them as options.
@@ -38,7 +41,10 @@ are not options. However, for my scripts to work properly, they
 require passwd and host options. These options are read then
 used for openconnect.
 
-**dmenu_resblu**
+#### dmenu_resblu
+
+- [dmenu_resblu](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_resblu)
+- [resblu](https://github.com/jbh/dotfiles#resblu)
 
 This menu uses the resblu script to reset bluetooth devices. The
 motivation for this script and its dmenu arose from issues due
@@ -55,7 +61,9 @@ for the one you select. `resblu` will then reset that bluetooth
 device. Be sure the bluetooth device is ready to pair before
 trying to reset.
 
-**dmenu_tmux**
+#### dmenu_tmux
+
+- [dmenu_tmux](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_tmux)
 
 Opens a dmenu of existing tmux sessions. If you select a tmux
 session **that exists and isn't open**, it will open it. If you
@@ -63,7 +71,12 @@ select a tmux session **that exists and is open**, it will focus
 it. If you type a **new session name and press `shift+enter`**,
 it will open a new tmux session.
 
-**dmenu_tizonia**
+#### dmenu_tizonia
+
+- [dmenu_tizonia](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_tizonia)
+- [example spotify playlists](https://github.com/jbh/dotfiles/blob/master/.config/tizonia/spotify.txt.example)
+- [example google music playlists](https://github.com/jbh/dotfiles/blob/master/.config/tizonia/gmusic.txt.example)
+
 
 If no instance of `st-tizonia` exists, present options for playlists
 and open the selected playlist in tizonia with a window class of
@@ -73,7 +86,9 @@ with class `st-tizonia`. If change, present options for playlists
 and open the selected playlist in tizonia with a window class of
 `st-tizonia`. 
 
-**dmenu_configs**
+#### dmenu_configs
+
+- [dmenu_configs](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_configs)
 
 The `dmenu_configs` script will open a menu that lists config files.
 This menu is bound to `super + e`. The selected config file will be
@@ -84,7 +99,9 @@ bspwmrc to send the terminal to the #8 desktop, CNF.
 These menu items are made manually. You'll have to add the config
 files you want to add to this menu by editing the script.
 
-**dmenu_phpstorm**
+#### dmenu_phpstorm
+
+- [dmenu_phpstorm](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_phpstorm)
 
 The `dmenu_phpstorm` script will traverse through the `Sites`
 directory, which is what I maintain as my PhpStorm project
@@ -97,7 +114,10 @@ file in vim for quick editing.
 > WARNING: This script was made on a whim and is probably buggy.
 Will evolve.
 
-**dmenu_calcurse**
+#### dmenu_calcurse
+
+- [dmenu_calcurse](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_calcurse)
+- [calcurse configs](https://github.com/jbh/dotfiles/tree/master/.config/calcurse)
 
 The `dmenu_calcurse` script will look in `~/.config/calcurse`
 for individual calcurse configs. For example,
@@ -108,7 +128,17 @@ calcurse is launched with that configuration in an st terminal
 with the class `st-calcurse`. This class is used in the bspwmrc
 to send the terminal to the #3 desktop, TRM.
 
-**cas**
+#### resblu
+
+- [resblu](https://github.com/jbh/dotfiles/blob/master/.local/bin/resblu)
+
+The `resblu` script uses `expect` to script remove/trust/pair/connect
+with bluetoothctl. It accepts the MAC Address of a bluetooth device
+as the option. It's mostly used in conjuction with `dmenu_resblu`.
+
+#### cas
+
+- [cas](https://github.com/jbh/dotfiles/blob/master/.local/bin/cas)
 
 The `cas` script can be used to quickly change audio sources.
 I use it to write keybindings that allow me to quickly switch
@@ -116,7 +146,9 @@ between bluetooth and analong speakers. For example,
 `super + alt + 1` changes my audio output to analog speakers,
 and `super + alt + 2` changes my audio output to bluetooth.
 
-**scs**
+#### scs
+
+- [scs](https://github.com/jbh/dotfiles/blob/master/.local/bin/cas)
 
 The `scs` script simply outputs sxhkd hotkeys with their
 comments to fzf, allowing for a quick fuzzy search of hotkeys.
