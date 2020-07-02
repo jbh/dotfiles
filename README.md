@@ -164,3 +164,25 @@ is for popping up a helpful, floating terminal window that can
 used to search hotkeys and quickly closed by typing enter. This
 is bound to `super + question` (?).
 
+#### ibmi-cmd
+
+- [ibmi-cmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/ibmi-cmd)
+
+My main career is one that makes me deal with IBM i servers most of the time.
+I try to do as much work as I can through SSH and BASH instead of Telnet and
+"Green Screen". These days, I mainly only open Green Screen to run trivial commands
+like `STRTCPSVR *SSHD`, which will start SSH and allow me to work in my normal
+workflow. It's tedious to open Green Screen simply to start SSH and exit.
+
+This is the motivation behind `ibmi-cmd`, which is a simple script that can
+run trivial commands on IBM i. For example:
+
+```bash
+ibmi-cmd -s <ibmi-ip> -u <username> -c "STRTCPSVR *SSHD"
+```
+
+It will prompt for a password, run the command, and exit.
+
+> Use with caution. There is currently no error checking or output parsing
+for success/fail.
+
