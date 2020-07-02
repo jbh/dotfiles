@@ -21,9 +21,6 @@ See Anand Iyer's
 
 **Polybar VPN Status/dmenu_vpns**
 
-This feature only supports openfortivpn at the moment, because that's
-all I currently use. More will be added as I use them.
-
 The `dmenu_vpns` script looks at `.config/openfortivpn` and
 `.config/openconnect` for config files and lists them as options.
 This menu is bound to `super + v`. If you select one, it will
