@@ -12,6 +12,11 @@ These dotfiles are for Arch Linux
   - picom (compositor)
   - bash (shell)
 
+### Source Control/Installation Methodology
+
+See Anand Iyer's
+[article](https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html)
+
 ### Features
 
 **Polybar VPN Status/dmenu_vpns**
@@ -35,6 +40,23 @@ I no longer have nm-applet installed.
 are not options. However, for my scripts to work properly, they
 require passwd and host options. These options are read then
 used for openconnect.
+
+**dmenu_resblu**
+
+This menu uses the resblu script to reset bluetooth devices. The
+motivation for this script and its dmenu arose from issues due
+to dual booting Windows and Arch Linux. For some reason, when I
+return to Arch Linux from Windows, my bluetooth devices no longer
+connect, and I have to remove/trust/pair/connect them each time.
+
+`dmenu_resblu` requires that `~/.config/bluetooth/addresses.txt`
+be defined. See the example on in this repo. The `<device-id>`
+is the MAC Address of the bluetooth device found in bluetoothctl
+during scan. `dmenu_resblu` parses this file, presents each
+bluetooth device as an option in dmenu, and will run resblu
+for the one you select. `resblu` will then reset that bluetooth
+device. Be sure that that bluetooth device is ready to pair before
+trying to reset.
 
 **dmenu_tmux**
 
