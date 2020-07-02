@@ -55,7 +55,7 @@ is the MAC Address of the bluetooth device found in bluetoothctl
 during scan. `dmenu_resblu` parses this file, presents each
 bluetooth device as an option in dmenu, and will run resblu
 for the one you select. `resblu` will then reset that bluetooth
-device. Be sure that that bluetooth device is ready to pair before
+device. Be sure the bluetooth device is ready to pair before
 trying to reset.
 
 **dmenu_tmux**
