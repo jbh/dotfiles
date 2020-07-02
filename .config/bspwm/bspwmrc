@@ -13,7 +13,7 @@ $HOME/.config/polybar/launch.sh &
 wmname LG3D &
 
 # Consider setting this dynamically
-bspc monitor DP-2 -d WWW GFX TRM DOC SYS
+bspc monitor DP-2 -d WWW CHT GFX DOC SYS
 bspc monitor DP-4 -d DEV MUS CNF GME VPN
 
 bspc config border_width        1
