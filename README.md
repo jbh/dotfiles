@@ -65,9 +65,13 @@ it will open a new tmux session.
 
 **dmenu_tizonia**
 
-If tizonia from this menu already exists, focus it. Otherwise,
-open a dmenu with manually defined playlists, and open
-the selected playlist in tizonia.
+If no instance of `st-tizonia` exists, present options for playlists
+and open the selected playlist in tizonia with a window class of
+`st-tizonia`. If `st-tizonia` already exists, present options to change
+playlist or focus `st-tizonia`. If `focus`, simply focus the window
+with class `st-tizonia`. If change, present options for playlists
+and open the selected playlist in tizonia with a window class of
+`st-tizonia`. 
 
 **dmenu_configs**
 
