@@ -22,6 +22,10 @@ super + question
 super + d
 	dmenu_run
 
+# open menu for bluetooth devices to reset
+super + b
+	dmenu_resblu
+
 # logout/suspend/shutdown menu
 super + q
 	dmenu_logout
@@ -46,6 +50,7 @@ super + alt + p
 super + alt + t
 	dmenu_tasks
 
+# open menu of playlists to play with tizonia
 super + alt + m
 	dmenu_tizonia
 
