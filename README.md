@@ -50,7 +50,7 @@ return to Arch Linux from Windows, my bluetooth devices no longer
 connect, and I have to remove/trust/pair/connect them each time.
 
 `dmenu_resblu` requires that `~/.config/bluetooth/addresses.txt`
-be defined. See the example on in this repo. The `<device-id>`
+be defined. See the example in this repo. The `<device-id>`
 is the MAC Address of the bluetooth device found in bluetoothctl
 during scan. `dmenu_resblu` parses this file, presents each
 bluetooth device as an option in dmenu, and will run resblu
