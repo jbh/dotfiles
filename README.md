@@ -148,7 +148,7 @@ and `super + alt + 2` changes my audio output to bluetooth.
 
 #### scs
 
-- [scs](https://github.com/jbh/dotfiles/blob/master/.local/bin/cas)
+- [scs](https://github.com/jbh/dotfiles/blob/master/.local/bin/scs)
 
 The `scs` script simply outputs sxhkd hotkeys with their
 comments to fzf, allowing for a quick fuzzy search of hotkeys.
