@@ -22,7 +22,7 @@ See Anand Iyer's
 #### Polybar VPN Status/dmenu_vpns
 
 - [dmenu_vpns](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_vpns)
-- [vpninfo](https://github.com/jbh/dotfiles/blob/master/.local/bin/vpninfo)j
+- [vpninfo](https://github.com/jbh/dotfiles/blob/master/.local/bin/vpninfo)
 
 The `dmenu_vpns` script looks at `.config/openfortivpn` and
 `.config/openconnect` for config files and lists them as options.
