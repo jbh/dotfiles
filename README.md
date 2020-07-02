@@ -15,7 +15,7 @@ These dotfiles are for Arch Linux
 ### Source Control/Installation Methodology
 
 See Anand Iyer's
-[article](https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html)
+[article](https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html).
 
 ### Features
 
