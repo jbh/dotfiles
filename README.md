@@ -61,6 +61,13 @@ for the one you select. `resblu` will then reset that bluetooth
 device. Be sure the bluetooth device is ready to pair before
 trying to reset.
 
+> `resblu` is very buggy at the moment. Sometimes it doesn't wait
+long enough for the device to be discovered, so it fails to connect.
+Other times, it'll completely crash the bluetooth service, and
+the bluetooth service will have to be manually restarted. Also,
+I need to figure out how to know success/fail and use notify-send
+to update the user.
+
 #### dmenu_tmux
 
 - [dmenu_tmux](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_tmux)
