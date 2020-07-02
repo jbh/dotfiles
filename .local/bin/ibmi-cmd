@@ -11,9 +11,9 @@ Run a remote command on IBM i
 
 OPTIONS
   -h, --help     Display this help text
-  -s, --server   VPN software to use                        **required**
-  -u, --user     User for VPN                               **required**
-  -c, --cmd      IP to ping to validate VPN connection      **required**"
+  -s, --server   IBM i server address    **required**
+  -u, --user     IBM i user              **required**
+  -c, --cmd      Command to run on IBM i **required**"
 }
 
 print_cli_error() {
