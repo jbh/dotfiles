@@ -9,7 +9,7 @@ spawn bluetoothctl
 expect -re $prompt
 send "scan on\r"
 send_user "\nSleeping\r"
-sleep 5
+sleep 15
 send_user "\nDone sleeping\r"
 send "remove $address\r"
 sleep 1
