@@ -101,18 +101,18 @@ and open the selected playlist in tizonia with a window class of
 
 Opens a dmenu that lists files from `.config/ibmicmd`. These files have a certain
 format. Please see [example server](https://github.com/jbh/dotfiles/blob/master/.config/ibmicmd/example).
-When one is selected, dmenu will prompt the user for the IBM i password. Once the password has
-been entered, dmenu will prompt the user for an IBM i command to run. It will then run
-`ibmicmd` with the proper options to run the command on IBM i. A notification of
-success/failure will be sent with notify-send.
+When one is selected, dmenu will prompt the user for an IBM i command to run. Once a command
+has been entered, [stprompt](https://github.com/jbh/dotfiles#stprompt)
+will prompt the user for the IBM i password. It will then run `ibmicmd` with the proper options
+to run the command on IBM i. A notification of success/failure will be sent with notify-send.
 
 Example flow:
 
 ```
 dmenu_ibmicmd # Or keyboard shortcut to call it
 # Choose server in dmenu
-# Enter IBM i password
 # Enter "STRTCPSVR *SSHD"
+# Enter IBM i password
 # Wait for notify-send to show success/failure
 ```
 
@@ -207,4 +207,13 @@ ibmicmd -s <ibmi-ip> -u <username> -c "STRTCPSVR *SSHD"
 ```
 
 It will prompt for a password, run the command, and exit.
+
+#### stprompt
+
+- [stprompt](https://github.com/jbh/dotfiles/blob/master/.local/bin/stprompt)
+
+A simple script that opens a terminal to prompt with hidden text. This is
+useful when asking for a user's password. See use in
+[dmenu_ibmicmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_ibmicmd).
+There's a rule in the `bspwmrc` to force this prompt to be floating.
 
