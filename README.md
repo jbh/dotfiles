@@ -91,7 +91,19 @@ and open the selected playlist in tizonia with a window class of
 playlist or focus `st-tizonia`. If `focus`, simply focus the window
 with class `st-tizonia`. If change, present options for playlists
 and open the selected playlist in tizonia with a window class of
-`st-tizonia`. 
+`st-tizonia`.
+
+#### dmenu_ibmicmd
+
+- [dmenu_ibmicmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_ibmicmd)
+- [ibmicmd](https://github.com/jbh/dotfiles#ibmicmd)
+- [example commands](https://github.com/jbh/dotfiles/blob/master/.config/ibmicmd)
+
+Opens a dmenu that lists files from `.config/ibmicmd`. These files have a certain
+format. Please see [example commands](https://github.com/jbh/dotfiles/blob/master/.config/ibmicmd).
+When one is selected, dmenu will prompt you for the user's password. It will then run
+`ibmicmd` with the proper options to run the command on IBM i. A notification of
+success/failure will be sent with notify-send.
 
 #### dmenu_configs
 
@@ -164,9 +176,9 @@ is for popping up a helpful, floating terminal window that can
 used to search hotkeys and quickly closed by typing enter. This
 is bound to `super + question` (?).
 
-#### ibmi-cmd
+#### ibmicmd
 
-- [ibmi-cmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/ibmi-cmd)
+- [ibmicmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/ibmicmd)
 
 > This requires Access Client Solutions be installed.
 
@@ -176,11 +188,11 @@ I try to do as much work as I can through SSH and BASH instead of Telnet and
 like `STRTCPSVR *SSHD`, which will start SSH and allow me to work in my normal
 workflow. It's tedious to open Green Screen simply to start SSH and exit.
 
-This is the motivation behind `ibmi-cmd`, which is a simple script that can
+This is the motivation behind `ibmicmd`, which is a simple script that can
 run trivial commands on IBM i. For example:
 
 ```bash
-ibmi-cmd -s <ibmi-ip> -u <username> -c "STRTCPSVR *SSHD"
+ibmicmd -s <ibmi-ip> -u <username> -c "STRTCPSVR *SSHD"
 ```
 
 It will prompt for a password, run the command, and exit.
