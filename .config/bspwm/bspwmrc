@@ -41,6 +41,7 @@ bspc rule -a st-vpn desktop='^10' follow=on
 bspc rule -a st-calcurse desktop='^3' follow=on
 bspc rule -a st-tizonia desktop='^7' follow=on
 bspc rule -a st-sxhkd-help state=floating
+bspc rule -a st-prompt state=floating
 bspc rule -a Emacs state=tiled desktop='^6' follow=on
 bspc rule -a jetbrains-phpstorm desktop='^6' follow=on
 bspc rule -a jetbrains-datagrip desktop='^6' follow=on
