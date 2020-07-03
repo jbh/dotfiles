@@ -168,8 +168,7 @@ is bound to `super + question` (?).
 
 - [ibmi-cmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/ibmi-cmd)
 
-> Use with caution. There is currently no error checking or output parsing
-for success/fail.
+> This requires Access Client Solutions be installed.
 
 My main career is one that makes me deal with IBM i servers most of the time.
 I try to do as much work as I can through SSH and BASH instead of Telnet and
