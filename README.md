@@ -106,6 +106,16 @@ been entered, dmenu will prompt the user for an IBM i command to run. It will th
 `ibmicmd` with the proper options to run the command on IBM i. A notification of
 success/failure will be sent with notify-send.
 
+Example flow:
+
+```
+dmenu_ibmicmd # Or keyboard shortcut to call it
+# Choose server in dmenu
+# Enter IBM i password
+# Enter "STRTCPSVR *SSHD"
+# Wait for notify-send to show success/failure
+```
+
 #### dmenu_configs
 
 - [dmenu_configs](https://github.com/jbh/dotfiles/blob/master/.local/bin/dmenu_configs)
