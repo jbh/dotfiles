@@ -22,6 +22,10 @@ print_cli_error() {
     exit 1
 }
 
+readonly ACS="/opt/ibm/iAccessClientSolutions/Start_Programs/Linux_x86-64/acslaunch_linux-64"
+readonly ACSRMTCMD="$ACS /PLUGIN=rmtcmd"
+readonly ACSCFG="$ACS /PLUGIN=cfg"
+readonly ACSLOGON="$ACS /PLUGIN=logon"
 readonly SHORTOPTS=:hs:u:c:
 readonly LONGOPTS=help,server:,user:,cmd:
 readonly OPTS=$(getopt --options $SHORTOPTS --long $LONGOPTS --name "$0" -- "$@")
@@ -66,6 +70,9 @@ echo -n "Password: "
 read -s PASSWORD
 echo
 
-(printf "$USER"; sleep 1; printf "\t$PASSWORD\r\n"; sleep 1; printf "\r\n"; sleep 1; printf "$COMMAND\r\n"; sleep 1;) | \
-    telnet $SERVER
+$ACSCFG /SYSTEM=$SERVER /USERID=$USER &>/dev/null
+$ACSLOGON /SYSTEM=$SERVER /USERID=$USER /PASSWORD=$PASSWORD /AUTH &>/dev/null
+
+[[ -z `$ACSRMTCMD /SYSTEM=$SERVER /CMD="$COMMAND" 2>/dev/null | grep "MSGGEN002"` ]] && \
+    echo "$COMMAND failed" || echo "$COMMAND succeeded"
 
