@@ -8,7 +8,7 @@ check_choice() {
     echo "Program terminated." && exit 1
 }
 
-cmdspath="$HOME/.config/ibmi-cmd"
+cmdspath="$HOME/.config/ibmicmd"
 cmds=$(ls -1 "$cmdspath" | sed '/example/d')
 options=$(echo "$cmds" && echo "quit")
 
@@ -21,7 +21,7 @@ cmdpath="$cmdspath/$choice"
 if [ -f $cmdpath ]; then
   source $cmdpath
   PASSWORD=$(dmenu -p "$user@$server password: " <&- && echo)
-  echo $PASSWORD | ibmi-cmd -s $server -u $user -c "$command" | grep succeeded && \
+  echo $PASSWORD | ibmicmd -s $server -u $user -c "$command" | grep succeeded && \
     notify-send " $command succeeded" || notify-send " $command failed"
 fi
 
