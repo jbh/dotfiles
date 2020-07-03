@@ -71,7 +71,9 @@ read -s PASSWORD
 echo
 
 $ACSCFG /SYSTEM=$SERVER /USERID=$USER &>/dev/null
-$ACSLOGON /SYSTEM=$SERVER /USERID=$USER /PASSWORD=$PASSWORD /AUTH &>/dev/null
+[[ -z `$ACSLOGON /SYSTEM=$SERVER /USERID=$USER /PASSWORD=$PASSWORD /AUTH 2>/dev/null | grep "MSGGEN002"` ]] && \
+    echo "ACS logon failed" && exit 1
+#$ACSLOGON /SYSTEM=$SERVER /USERID=$USER /PASSWORD=$PASSWORD /AUTH &>/dev/null
 
 [[ -z `$ACSRMTCMD /SYSTEM=$SERVER /CMD="$COMMAND" 2>/dev/null | grep "MSGGEN002"` ]] && \
     echo "$COMMAND failed" || echo "$COMMAND succeeded"
