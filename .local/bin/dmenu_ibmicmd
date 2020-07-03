@@ -20,8 +20,8 @@ cmdpath="$cmdspath/$choice"
 
 if [ -f $cmdpath ]; then
   source $cmdpath
-  PASSWORD=$(dmenu -p "$user@$server password: " <&- && echo)
   COMMAND=$(dmenu -p "Command to run: " <&- && echo)
+  PASSWORD=$(stprompt "$user@$server password")
   echo $PASSWORD | ibmicmd -s $server -u $user -c "$COMMAND" | grep succeeded && \
     notify-send " $COMMAND succeeded" || notify-send " $COMMAND failed"
 fi
