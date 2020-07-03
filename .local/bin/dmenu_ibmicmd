@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# If invalid choice or quit, exit
+check_choice() {
+  choice="$1"
+  options="$2"
+  [[ "$choice" == "quit" || "$choice" == "" ||  "$(echo "${options[@]}" | grep "$choice")" == "" ]] && \
+    echo "Program terminated." && exit 1
+}
+
+cmdspath="$HOME/.config/ibmi-cmd"
+cmds=$(ls -1 "$cmdspath" | sed '/example/d')
+options=$(echo "$cmds" && echo "quit")
+
+# Launch dmenu
+choice=$(echo "${options[@]}" | dmenu -i -p 'IBM i CMD: ')
+check_choice "$choice" "${options[@]}"
+
+cmdpath="$cmdspath/$choice"
+
+if [ -f $cmdpath ]; then
+  source $cmdpath
+  PASSWORD=$(dmenu -p "$user@$server password: " <&- && echo)
+  echo $PASSWORD | ibmi-cmd -s $server -u $user -c "$command" | grep succeeded && \
+    notify-send " $command succeeded" || notify-send " $command failed"
+fi
+

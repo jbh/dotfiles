@@ -1,0 +1,4 @@
+user=expuser
+server=ibmi.example.com
+command="STRTCPSVR *SSHD"
+

@@ -54,6 +54,10 @@ super + alt + t
 super + alt + m
 	dmenu_tizonia
 
+# open a menu of IBM i commands
+super + i
+	dmenu_ibmicmd
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
