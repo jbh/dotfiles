@@ -8,19 +8,22 @@ check_choice() {
     echo "Program terminated." && exit 1
 }
 
-cmdspath="$HOME/.config/ibmicmd"
-cmds=$(ls -1 "$cmdspath" | sed '/example/d')
-options=$(echo "$cmds" && echo "quit")
+cmds=("STRTCPSVR *SSHD
+ENDTCPSVR *SSHD")
+
+svrspath="$HOME/.config/ibmicmd"
+svrs=$(ls -1 "$svrspath" | sed '/example/d')
+options=$(echo "$svrs" && echo "quit")
 
 # Launch dmenu
-choice=$(echo "${options[@]}" | dmenu -i -p 'IBM i CMD: ')
+choice=$(echo "${options[@]}" | dmenu -i -p 'IBM i Server: ')
 check_choice "$choice" "${options[@]}"
 
-cmdpath="$cmdspath/$choice"
+svrpath="$svrspath/$choice"
 
-if [ -f $cmdpath ]; then
-  source $cmdpath
-  COMMAND=$(dmenu -p "Command to run: " <&- && echo)
+if [ -f $svrpath ]; then
+  source $svrpath
+  COMMAND=$(echo "${cmds[@]}" | dmenu -i -p "Command to run: ")
   PASSWORD=$(stprompt "$user@$server password")
   echo $PASSWORD | ibmicmd -s $server -u $user -c "$COMMAND" | grep succeeded && \
     notify-send " $COMMAND succeeded" || notify-send " $COMMAND failed"
