@@ -3,7 +3,6 @@
 # Autostart WM dependent applications
 sxhkd &
 dunst &
-picom -b &
 setbg &
 unclutter &
 $HOME/.config/polybar/launch.sh &
