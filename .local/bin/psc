@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Prepare for Screen Capture
+# This will prep my monitor screen capture
+
+# start: Change resolution to 1920x1080, turn off compositor, reload bspwm
+# end:   Change back to normal
+#
+
+error() {
+  echo $1
+  exit 1
+}
+
+readonly actions=("start
+end")
+readonly invalid="Invalid action. Actions: [start, end]"
+
+[ $# -lt 1 ] && error "Must provide an action [start,end]"
+[[ `echo "${actions[@]}" | grep -w $1` == "" ]] && error "$invalid"
+
+case $1 in
+  start)
+    resolution=1920x1080
+    [[ `pgrep picom` != "" ]] && pkill -f picom
+    ;;
+  end)
+    resolution=2560x1440
+    [[ -z `pgrep picom` ]] && picom -b &
+    ;;
+  *)
+    error "$invalid"
+    ;;
+esac
+
+xrandr --output DP-2 --mode $resolution
+bspc wm -r
+
