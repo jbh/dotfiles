@@ -191,7 +191,8 @@ is bound to `super + question` (?).
 
 - [ibmicmd](https://github.com/jbh/dotfiles/blob/master/.local/bin/ibmicmd)
 
-> This requires Access Client Solutions be installed.
+> This requires Access Client Solutions be installed. RMTCMD must also be
+enabled on IBM i for this to work.
 
 My main career is one that makes me deal with IBM i servers most of the time.
 I try to do as much work as I can through SSH and BASH instead of Telnet and
